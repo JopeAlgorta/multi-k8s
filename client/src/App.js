@@ -13,7 +13,7 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            <Link to='/'>Go to <code>Home</code></Link>
+            <Link to='/otherpage'>Go to <code>OtherPage</code></Link>
           </p>
           <a
             className="App-link"
