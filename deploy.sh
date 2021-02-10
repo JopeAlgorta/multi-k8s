@@ -1,16 +1,8 @@
-#!/bin/sh
+docker build -t jopealgorta/multi-client:latest -t jopealgorta/multi-client:$SHA -f ./client/Dockerfile ./client
 
-docker build -t jopealgorta/multi-client:latest \
-    -t jopealgorta/multi-client:$SHA \
-    -f ./client/Dockerfile ./client
+docker build -t jopealgorta/multi-server:latest -t jopealgorta/multi-server:$SHA -f ./server/Dockerfile ./server
 
-docker build -t jopealgorta/multi-server:latest \
-    -t jopealgorta/multi-server:$SHA \
-    -f ./server/Dockerfile ./server
-
-docker build -t jopealgorta/multi-worker:latest \
-    -t jopealgorta/multi-worker:$SHA \
-    -f ./worker/Dockerfile ./worker
+docker build -t jopealgorta/multi-worker:latest -t jopealgorta/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 docker push jopealgorta/multi-client:latest
 docker push jopealgorta/multi-server:latest
