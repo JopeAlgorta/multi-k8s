@@ -9,6 +9,10 @@ class Fib extends Component {
     }
 
     componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData() {
         this.fetchValues()
         this.fetchIndexes()
     }
@@ -41,6 +45,7 @@ class Fib extends Component {
         await axios.post('/api/values', {
             index: this.state.index
         })
+        this.fetchData()
         this.setState({ index: '' })
     }
 
@@ -48,7 +53,7 @@ class Fib extends Component {
         return <div>
             <form onSubmit={this.handleSubmit}>
                 <div>
-                    <label>Enter your index:</label>
+                    <h3>Enter your index:</h3>
                 </div>
                 <input value={this.state.index} onChange={e => this.setState({ index: e.target.value })} />
                 <button>Submit</button>
